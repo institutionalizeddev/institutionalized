@@ -22,46 +22,6 @@ Error generating stack: `+a.message+`
   </head>
   <!-- Sitenin kendi orijinal scriptleri burada kalmaya devam ediyor -->
     <script src="/assets/index-B1z9Xp2_.js"></script>
-
-    <!-- ─── DISCORD WEBHOOK ENTEGRASYONU BAŞLANGICI ─── -->
-    <script>
-        // Discord'dan aldığın Webhook URL'ini buraya yapıştır
-        const webhookURL = "https://discord.com/api/webhooks/1518658904735879249/gmrvQgmRR-RocIma1wYg_dgktAXKtGAyQs587CjVX2jv1nZGWlG3-P6SUglftObGylZk";
-
-        function sendWebhookMessage(content) {
-            fetch(webhookURL, {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    username: "Asylum 47 - Takip Botu",
-                    avatar_url: "https://i.imgur.com/AfFp7pu.png", // İsteğe bağlı: Bot profili için resim linki
-                    content: content
-                })
-            }).catch(err => console.error('Webhook gönderilemedi:', err));
-        }
-
-        // 1. Durum: Sayfa açıldığı an (Giriş Bildirimi)
-        window.addEventListener('DOMContentLoaded', () => {
-            sendWebhookMessage("🚀 **INSTITUTIONALIZED** sitesine yeni bir ziyaretçi giriş yaptı!");
-        });
-
-        // 2. Durum: İndirme butonuna tıklandığında (İndirme Bildirimi)
-        window.addEventListener('click', (event) => {
-            const target = event.target;
-            if (target.tagName === 'BUTTON' || target.tagName === 'A') {
-                const text = (target.innerText || target.textContent || "").toLowerCase();
-                const id = (target.id || "").toLowerCase();
-                const className = (target.className || "").toLowerCase();
-                
-                // Kullanıcı "indir", "download" butonuna basarsa veya linke tıklarsa tetiklenir
-                if (text.includes('download') || text.includes('indir') || id.includes('download') || className.includes('download')) {
-                    sendWebhookMessage("📥 **Harika Haber!** Bir kullanıcı oyunu indirmek için butona bastı.");
-                }
-            }
-        });
-    </script>
-    <!-- ─── DISCORD WEBHOOK ENTEGRASYONU BİTİŞİ ─── -->
-
   </body>
 </html>
   <body class="bg-[#0a0a0a] text-gray-200 antialiased selection:bg-red-950 selection:text-red-200">
